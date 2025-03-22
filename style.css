@@ -1,0 +1,321 @@
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hover-color: purple; /* Default hover color */
+  --hover-color-1: green; /* Orange */
+  --hover-color-2: rgb(204, 32, 60); /* Blue */
+  --hover-color-3: yellow; /* Green */
+  --hover-color-4: orange; /* Pink */
+  --hover-color-5: brown; /* Yellow */
+  --hover-color-6: #42f5f5; /* Cyan */
+  --hover-color-7: orange; /* Red */
+}
+
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.5s ease;
+}
+
+/* Navbar Styling */
+header {
+  
+  color: black;
+  padding: 20px 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 15px;
+  transition: all 0.3s;
+}
+
+
+
+/* Gallery Styling */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 10%;
+  width: 100%;
+}
+
+/* Media Container */
+.media {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+/* Background Image */
+.media-content {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.5s ease;
+}
+
+/* Video Styling */
+.media-content video {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Hover Effects */
+.media:hover {
+  transform: scale(1.05);
+}
+
+/* Background color change on hover */
+.media:hover video {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Full-page background color change */
+.media:hover {
+  animation: bgColorChange 0.5s forwards;
+}
+
+/* Applying background color to the entire page */
+body.active {
+  background: var(--hover-color) !important;
+  transition: background 0.5s ease;
+}
+
+/* Stylish Footer */
+footer {
+  
+ 
+  padding: 60px 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 20px;
+  min-width: 250px;
+}
+
+.footer-section h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.footer-section p,
+.footer-section a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #ff6600;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 10px 0;
+}
+
+.footer-section .social-icons a {
+  display: inline-block;
+  margin: 5px;
+  transition: transform 0.3s;
+}
+
+.footer-section .social-icons img {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-section .social-icons a:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gallery {
+    padding: 20px 5%;
+  }
+
+  .media {
+    width: 100%;
+    max-width: 90%;
+    height: 300px;
+  }
+
+  .media-content video {
+    width: 80%;
+    height: 80%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+}
+.last-image {
+  width: 100vw;
+  height: 10%;
+  margin-top: 100px;
+}
+
+/* Add the keyframes animation */
+@keyframes bgColorChange {
+  from {
+    background: #f4f4f4;
+  }
+  to {
+    background: var(--hover-color);
+  }
+}
+
+/* Update the media-content hover effect */
+.media-content:hover ~ body,
+.media-content:hover {
+  cursor: pointer;
+}
+
+/* Update body styling to make transition smoother */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.5s ease;
+}
+
+/* Add this new rule for the hover effect */
+.media-content:hover + body,
+.media:hover ~ body,
+body:has(.media-content:hover) {
+  background-color: var(--hover-color);
+}
+
+/* Remove the old hover animations */
+/* .media:hover {
+  animation: bgColorChange 0.5s forwards;
+}
+body.active {
+  background: var(--hover-color) !important;
+  transition: background 0.5s ease;
+} */
+
+/* Add specific hover effects for each image */
+body:has(.img1:hover) {
+  background-color: var(--hover-color-1);
+  transition: background-color 0.5s ease;
+}
+
+body:has(.img2:hover) {
+  background-color: var(--hover-color-2);
+  transition: background-color 0.5s ease;
+}
+
+body:has(.img3:hover) {
+  background-color: var(--hover-color-3);
+  transition: background-color 0.5s ease;
+}
+
+body:has(.img4:hover) {
+  background-color: var(--hover-color-4);
+  transition: background-color 0.5s ease;
+}
+
+body:has(.img5:hover) {
+  background-color: var(--hover-color-5);
+  transition: background-color 0.5s ease;
+}
+
+body:has(.img6:hover) {
+  background-color: var(--hover-color-6);
+  transition: background-color 0.5s ease;
+}
+
+body:has(.img7:hover) {
+  background-color: var(--hover-color-7);
+  transition: background-color 0.5s ease;
+}
